@@ -1,7 +1,7 @@
 /*
     ===== Código de TypeScript =====
 */
-interface Producto{
+export interface Producto{
     desc: string,
     precio: number
 }
@@ -16,7 +16,7 @@ const precio2: Producto = {
     precio: 13
 }
 
-function calculaISV(Productos: Producto[]):[number, number]{
+export function calculaISV(Productos: Producto[]):[number, number]{
     let total = 0
     Productos.forEach(({precio}) =>{
         total += precio
