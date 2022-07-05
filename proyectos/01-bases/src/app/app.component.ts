@@ -14,6 +14,11 @@ export class AppComponent {
   }
 
   btnDecrementar = ()=>{
-    this.contador--;
+    if(this.contador >0){
+      this.contador--;
+    }else{
+      this.contador = 0;
+    }
+    
   }
 }
