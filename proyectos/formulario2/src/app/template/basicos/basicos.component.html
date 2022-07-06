@@ -19,7 +19,7 @@
                 <label class="col-sm-3 col-form-label">Precio:</label>
                 <div class="col-sm-9">
                     <input type="number" name="Precio" ngModel class="form-control" 
-                    placeholder="Precio del producto" required>
+                    placeholder="Precio del producto" required customMin [minimo]="0">
                     <span class="form-text text-danger" *ngIf="validarPrecio()">
                         el precio debe ser 0 o mayor
                     </span>
