@@ -1,1 +1,61 @@
-<p>dinamicos works!</p>
+<h2>Template: <small>Dinamicos</small></h2>
+
+<form (ngSubmit)="btnGuardar()" #frmDinamico="ngForm" autocomplete="off">
+    <div class="mb-3 row">
+        <label for="" class="col-sm-3 col-form-label">Nombre:</label>
+        <div class="col-sm-9">
+            <input type="text" name="nombre" class="form-control" ngModel placeholder="nombre de la persona" required>
+            <span class="text-danger form-text" *ngIf="validarCampo('nombre')">Este campo es obligatorio</span>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="" class="col-sm-3 col-form-label">Agregar:</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <input type="text" name="agregar" class="form-control" ngModel placeholder="nombre de la persona" required>
+                <button class="btn btn-outline-primary">Agregar</button>    
+            </div>
+            <span class="text-danger form-text" *ngIf="validarCampo('agregar')">Este campo es obligatorio</span>
+        </div>
+    </div> 
+    <div class="mb-3 row">
+        <label for="" class="col-sm-3 col-form-label">Favoritos:</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <input type="text" name="favoritos" class="form-control" ngModel placeholder="nombre de la persona" required>
+                <button class="btn btn-outline-primary">Agregar</button>    
+            </div>
+            <span class="text-danger form-text" *ngIf="validarCampo('agregar')">Este campo es obligatorio</span>
+        </div>
+    </div> 
+    <!-- <div class="mb-3 row">
+        <label for="" class="col-sm-3 col-form-label">Nombre:</label>
+        <div class="col-sm-9">
+            <input type="text" name="nombre2" class="form-control" ngModel placeholder="nombre de la persona" required>
+            <span class="text-danger form-text" *ngIf="frmDinamico.form.controls['nombre2']?.errors && frmDinamico.form.controls['nombre2']?.touched">Este campo es obligatorio</span>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button" class="btn btn-success float-end" (click)="btnGuardar()" [disabled]="frmDinamico.invalid">Guardar</button>
+            
+        </div>
+    </div>
+
+
+</form>
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{frmDinamico.valid}}</pre>
+       <span>Pristine(a un no ha sido modificado)</span>
+        <pre>{{frmDinamico.pristine}}</pre>
+         <span>Touched</span>
+        <pre>{{frmDinamico.touched}}</pre>
+        <!-- <span>Value</span>
+        <pre>{{frmDinamico.value | json}}</pre>
+        <span>Value</span>
+        <pre>{{frmDinamico.controls["Precio"]?.errors | json}}</pre> -->
+    </div>
+</div>
