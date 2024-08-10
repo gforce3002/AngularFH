@@ -1,0 +1,60 @@
+<h2>Template: Basicos</h2>
+
+<hr>
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="Guardar()" #miformulario = "ngForm" autocomplete="off">
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Producto:</label>
+                <div class="col-sm-9">
+                    <input type="text" name="producto" id="producto" ngModel class="form-control" 
+                    placeholder="Nombre del producto" required minlength="3">
+                    <span class="form-text text-danger"
+                    *ngIf="validarProducto()">
+                        Debe de ser de 3 letras
+                    </span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Precio:</label>
+                <div class="col-sm-9">
+                    <input type="number" name="Precio" ngModel class="form-control" 
+                    placeholder="Precio del producto" required customMin [minimo]="0">
+                    <span class="form-text text-danger" *ngIf="validarPrecio()">
+                        el precio debe ser 0 o mayor
+                    </span>
+                    
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Existencias:</label>
+                <div class="col-sm-9">
+                    <input type="number" name="Existencias" ngModel class="form-control" placeholder="Existencia del producto">
+                    
+                </div>
+            </div>
+            <div class="mb-3 row">
+                
+                <div class="col">
+                    <button type="submit" class="btn btn-info float-end" [disabled]="miformulario.invalid">Guardar</button>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{miformulario.valid}}</pre>
+        <span>Pristine(a un no ha sido modificado)</span>
+        <pre>{{miformulario.pristine}}</pre>
+        <span>Touched</span>
+        <pre>{{miformulario.touched}}</pre>
+        <span>Value</span>
+        <pre>{{miformulario.value | json}}</pre>
+        <span>Value</span>
+        <pre>{{miformulario.controls["Precio"]?.errors | json}}</pre>
+    </div>
+</div>
