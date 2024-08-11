@@ -29,6 +29,9 @@ export class BasicosComponent implements OnInit {
              
   }
   Guardar(): void{
-     
+     this.miformulario.resetForm({
+      Precio:0,
+      Existencias:0
+     });
   }
 }
