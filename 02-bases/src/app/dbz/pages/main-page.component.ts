@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Character } from '../Interfaces/character.interface'
+import { DbzService } from '../services/dbz.service';
 
 @Component ({
     selector: 'app-dbz-main-page',
@@ -7,9 +8,19 @@ import {Character } from '../Interfaces/character.interface'
 })
 
 export class MainPaqeComponent {
-    public characters: Character[] = [
-        {name: "Krilin", power: 5000},
-        {name: "Goku", power: 1000},
-        {name: "Vegeta", power: 8000},
-    ];
+    //injectamos el servicio DbzService de tipo privado
+    constructor(private dbzService: DbzService){}
+
+    get characters(): Character[]{
+        return [...this.dbzService.characters]
+    }
+
+    DeleteCharacter(uuid: string):void{
+        this.dbzService.DeleteCharacter(uuid);
+    }
+
+    addCharecter(character: Character):void
+    {
+        this.dbzService.addCharecter(character);
+    }
 }

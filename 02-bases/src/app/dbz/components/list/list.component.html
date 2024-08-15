@@ -6,10 +6,16 @@
     let i = index;
     let isFirst  =  first
     let isLast  = last" 
-    class="list-group-item" 
+    class="list-group-item d-flex justify-content-between align-items-center" 
     [ngClass]="{'list-group-item-dark': isLast, 'list-group-item-primary': isFirst}">
+    
+    <div>
         <span class="text-primary">{{i + 1}}:</span>
         {{item.name}} - <strong>Power:</strong> {{item.power}}
-        
+    </div>    
+    
+    <button (click)="onDeleteCharacter(item.uuid)" class="btn btn-danger"> x </button>
     </li>
 </ul>
+
+
