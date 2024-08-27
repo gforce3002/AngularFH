@@ -1,0 +1,45 @@
+<ng-template #loading>
+    <div class="alert alert-info text-center">
+        Espere por favor
+    </div>
+</ng-template>
+<div *ngIf="countrie; else loading">
+    <div class="row">
+        <div class="col-12">
+            <h2>Pais: <strong>{{countrie.name.common}}</strong></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img [src]="countrie.flags.svg" [alt]="countrie.name.common" class="img-thumbnail">
+        </div>
+        <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Poblacion:</strong> {{countrie.population | number}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Codigo:</strong> {{countrie.cca3}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <h3>Traducciones</h3>
+        <div class="d-flex flex-wrap">
+            <span class="badge bg-primary m-1">{{countrie.translations['ara'].common}}</span>
+            <span class="badge bg-primary m-1">{{countrie.translations['bre'].common}}</span>
+            <span class="badge bg-primary m-1">{{countrie.translations['jpn'].common}}</span>
+            <span class="badge bg-primary m-1">{{countrie.translations['ces'].common}}</span>
+            <span class="badge bg-primary m-1">{{countrie.translations['cym'].common}}</span>
+            <span class="badge bg-primary m-1">{{countrie.translations['deu'].common}}</span>
+            <span class="badge bg-primary m-1">{{countrie.translations['est'].common}}</span>
+            <span class="badge bg-primary m-1">{{countrie.translations['fin'].common}}</span>
+            <span class="badge bg-primary m-1">{{countrie.translations['ita'].common}}</span>
+            <span class="badge bg-primary m-1">{{countrie.translations['kor'].common}}</span>
+            <span class="badge bg-primary m-1">{{countrie.translations['per'].common}}</span>
+        </div>
+    </div>
+</div>
