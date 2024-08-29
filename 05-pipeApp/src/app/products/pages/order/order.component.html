@@ -1,0 +1,50 @@
+
+<p-panel header="Custom Pipes" class="p-2">
+    <p>Pipes personalizados en Angular - desarrollado por el devs</p>
+</p-panel>
+
+<div class="grid mt-2">
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+            <b>{{'Hola' | toggleCase:isUpperCase}}</b>
+        </p-fieldset>        
+    </div>
+</div>
+
+
+<p-toolbar>
+    <div class="p-toolbar-group-start">
+        <p-button label="toggleCase" icon="pi pi-search" class="mr-2"
+        (onClick)="toggleUpperCase()"
+        ></p-button>
+    </div>
+    <div class="p-toolbar-group-end">
+        <p-button label="Por nombre" icon="pi pi-calendar" styleClass="p-button-success mr-2" (onClick)="changeSort('name');"></p-button>
+        <p-button label="Por Vuela" icon="pi pi-times" styleClass="p-button-danger mr-2" (onClick)="changeSort('canFly')"></p-button>
+        <p-button label="Por Color" icon="pi pi-times" styleClass="p-button-help" (onClick)="changeSort('color')"></p-button>
+    </div>
+</p-toolbar>
+
+<div class="grid">
+    <div class="col mt-2">
+        <p-panel>
+            <p-table [value]="hero | SortBy:sortby:desc " [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Vuela</th>
+                        <th>Color</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.canFly | canflay }}</td>
+                        <td>{{ product.color }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-panel>
+    </div>
+</div>
